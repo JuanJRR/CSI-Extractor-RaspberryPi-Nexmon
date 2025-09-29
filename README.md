@@ -506,7 +506,7 @@ Utiliza **Secure Copy Protocol (SCP)** para transferir los archivos de datos (`.
     **Sintaxis:** `scp <usuario_pi>@<ip_pi>:<ruta_archivo_en_pi> <ruta_local_en_pc>`
 
     ```bash
-    scp CSI@192.168.1.100:/home/csi/csi_raw_*.pcap Descargas/datos_csi/
+    scp csi@192.168.10.2:/home/csi/csi_raw_*.pcap Descargas/datos_csi/
     ```
 
 2. **Desde la Raspberry Pi (Push al Host):**
