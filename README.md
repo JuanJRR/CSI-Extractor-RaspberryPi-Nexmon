@@ -460,10 +460,10 @@ Los datos CSI son emitidos como paquetes UDP al puerto `5500`. Utiliza `tcpdump`
     Este comando capturará los primeros **1000** paquetes CSI en el puerto `5500` y los guardará en un archivo `.pcap` para su posterior análisis.
 
     ```bash
-    sudo tcpdump -i mon0 dst port 5500 -vv -w output.pcap -c 1000
+    sudo tcpdump -i wlan0 dst port 5500 -vv -w output.pcap -c 1000
     ```
 
-      * **`-i mon0`**: Especifica la interfaz de monitor.
+      * **`-i wlan0`**: Especifica la interfaz de monitor.
       * **`dst port 5500`**: Filtra solo los paquetes CSI.
       * **`-w output.pcap`**: Especifica el nombre del archivo de salida.
       * **`-c 1000`**: Limita la captura a 1000 paquetes.
@@ -472,7 +472,7 @@ Los datos CSI son emitidos como paquetes UDP al puerto `5500`. Utiliza `tcpdump`
     Si solo deseas ver el flujo de datos CSI en tiempo real, omite los argumentos `-w` y `-c`.
 
     ```bash
-    sudo tcpdump -i mon0 dst port 5500
+    sudo tcpdump -i wlan0 dst port 5500
     ```
 
 3. **Captura de Datos por Tiempo Determinado**
@@ -482,7 +482,7 @@ Los datos CSI son emitidos como paquetes UDP al puerto `5500`. Utiliza `tcpdump`
     Simplemente antepón `timeout [TIEMPO_EN_SEGUNDOS]s` a tu comando `tcpdump` y **elimina la opción `-c`** (conteo de paquetes) para que la captura se detenga exclusivamente por el límite de tiempo.
 
     ```bash
-    sudo timeout [TIEMPO_EN_SEGUNDOS]s tcpdump -i mon0 dst port 5500 -vv -w output.pcap
+    sudo timeout [TIEMPO_EN_SEGUNDOS]s tcpdump -i wlan0 dst port 5500 -vv -w output.pcap
     ```
 
     * **`timeout [TIEMPO_EN_SEGUNDOS]s`**: Indica al sistema que ejecute el comando siguiente y lo detenga automáticamente después del número de segundos especificado.
@@ -491,7 +491,7 @@ Los datos CSI son emitidos como paquetes UDP al puerto `5500`. Utiliza `tcpdump`
     Si deseas capturar datos CSI durante medio minuto, el comando sería:
 
     ```bash
-    sudo timeout 30s tcpdump -i mon0 dst port 5500 -vv -w captura_30s.pcap
+    sudo timeout 30s tcpdump -i wlan0 dst port 5500 -vv -w captura_30s.pcap
     ```
 
     El sistema iniciará la captura y la detendrá automáticamente pasados los 30 segundos.
